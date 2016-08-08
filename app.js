@@ -12,7 +12,6 @@ app.configure(function() {
     app.set('view engine', 'html');
     app.set('views', __dirname + '/template');
     app.set('view options', {layout: 'layout.html'});
-    app.set('app.env', 'Production')
     app.use(express.static(__dirname + '/www'));
 });
 require('./routes')(app);

@@ -1,5 +1,5 @@
 {
-  "name": "graph",
+  "name": "graph-time",
   "version": "0.0.1",
   "dependencies": {
     "async": "^2.0.0-rc.2",
