@@ -1,0 +1,21 @@
+{
+  "name": "graph",
+  "version": "0.0.1",
+  "dependencies": {
+    "async": "^2.0.0-rc.2",
+    "debug": "^2.2.0",
+    "error": "^7.0.2",
+    "express": "^3.*.*",
+    "nconf": "^0.8.4",
+    "socket.io": "^1.4.6",
+    "socket.io-handshake": "0.0.10",
+    "uinexpress": "0.0.5",
+    "winston": "^2.2.0"
+  },
+  "engines": {
+    "node": "0.12.7"
+  },
+  "scripts": {
+    "start": "node app"
+  }
+}
