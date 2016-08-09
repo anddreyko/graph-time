@@ -1,7 +1,6 @@
 var log = require('../lib/#log')(module)
   , sec = require('../lib/#sec')
   , conf = require('../conf')
-  , connect = require('connect')
   , async = require('async')
   , HttpError = require('../error').HttpError;
 
