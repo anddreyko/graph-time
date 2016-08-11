@@ -9,6 +9,7 @@ $(document).ready(function(){
   , kY = heightScreen / 10
   , COLOR = '#363636'
   , BACKGROUND = '#2a2a2a';
+
     cnv[0].width = widthScreen;
     cnv[0].height = heightScreen;
 

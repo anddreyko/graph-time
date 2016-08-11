@@ -18,11 +18,11 @@ module.exports = function(server) {
     io.sockets.on('connection', function(s) {
         setInterval(function(){
             d = new Date();
-            s1 = d.getSeconds() + 0 + d.getMilliseconds() / 1000;
-            m1 = d.getMinutes() + 0 + s1 / 60;
-            h1 = d.getHours() + 0 + m1 / 60;
-            d1 = d.getDate() + 0 + h1 / 24;
-            f1 = d.getMonth() + 0 + d1 / 30;
+            s1 = d.getSeconds() + d.getMilliseconds() / 1000;
+            m1 = d.getMinutes() + s1 / 60;
+            h1 = d.getHours() + m1 / 60;
+            d1 = d.getDate() + h1 / 24;
+            f1 = d.getMonth() + d1 / 30;
             listVertex = [
                 [
                     s1 / 10
@@ -94,7 +94,7 @@ module.exports = function(server) {
                 ]
             ]
             s.emit('draw', listRibs);
-        }, 24);
+        }, 1);
     });
     return io;
 }
