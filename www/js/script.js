@@ -2,17 +2,26 @@ $(document).ready(function(){
 
     var cnv = $('canvas')
   , cx = cnv[0].getContext('2d')
-  , socket = io.connect('', { 'reconnect': false });
+  , socket = io.connect('', { 'reconnect': false })
+  , widthScreen = $(window).width()
+  , heightScreen = $(window).height()
+  , kX1 = widthScreen / 21
+  , kX2 = widthScreen / 2
+  , kY = heightScreen / 10;
+    cnv[0].width = widthScreen;
+    cnv[0].height = heightScreen;
 
     $(window).resize(function(){
-        var widthScreen = $(window).width()
-      , heightScreen = $(window).height()
-      , kX1 = widthScreen / 21
-      , kX2 = widthScreen / 2
-      , kY = heightScreen / 10;
+        widthScreen = $(window).width();
+        heightScreen = $(window).height();
+        kX1 = widthScreen / 21;
+        kX2 = widthScreen / 2;
+        kY = heightScreen / 10;
         cnv[0].width = widthScreen;
         cnv[0].height = heightScreen;
     });
+
+    cnv.css({'background': '#2a2a2a'});
 
     cx.fillStyle = '#363636';
     cx.strokeStyle = '#363636';
