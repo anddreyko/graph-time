@@ -2,16 +2,17 @@ $(document).ready(function(){
 
     var cnv = $('canvas')
   , cx = cnv[0].getContext('2d')
-  , widthScreen = $(window).width()
-  , heightScreen = $(window).height()
-  , kX1 = widthScreen / 21
-  , kX2 = widthScreen / 2
-  , kY = heightScreen / 10
   , socket = io.connect('', { 'reconnect': false });
-  
-    cnv[0].width = cnv.width();
-    cnv[0].height = cnv.height();
-    cnv.css({'background': '#2a2a2a'});
+
+    $(window).resize(function(){
+        var widthScreen = $(window).width()
+      , heightScreen = $(window).height()
+      , kX1 = widthScreen / 21
+      , kX2 = widthScreen / 2
+      , kY = heightScreen / 10;
+        cnv[0].width = widthScreen;
+        cnv[0].height = heightScreen;
+    });
 
     cx.fillStyle = '#363636';
     cx.strokeStyle = '#363636';

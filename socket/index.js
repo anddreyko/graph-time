@@ -94,7 +94,7 @@ module.exports = function(server) {
                 ]
             ]
             s.emit('draw', listRibs);
-        }, 34);
+        }, 24);
     });
     return io;
 }
