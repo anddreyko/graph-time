@@ -14,7 +14,7 @@ var log = require('../lib/#log')(module)
 
 module.exports = function(server) {
     var io = require('socket.io').listen(server);
-    io.set('origins', conf.get('uri')+':'+conf.get('port'));
+    io.set('origins', conf.get('uri')+':*');
 
     io.sockets.on('connection', function(s) {
 
