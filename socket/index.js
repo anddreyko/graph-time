@@ -14,8 +14,14 @@ var log = require('../lib/#log')(module)
 
 module.exports = function(server) {
     var io = require('socket.io').listen(server);
-    io.set('origins', '*:*');
+    io.set('origins', conf.get('uri')+':'+conf.get('port'));
+
     io.sockets.on('connection', function(s) {
+
+        /**
+         * Run loop through Timer for emitting data of date every 24 ms
+         * return array listRibs - pairs of vertices
+         */
         setInterval(function(){
             d = new Date();
             s1 = d.getSeconds() + d.getMilliseconds() / 1000;
@@ -27,46 +33,47 @@ module.exports = function(server) {
                 [
                     s1 / 10
                   , 9
-                  , 10
+                  , 1
                 ], [
                     s1 % 10
                   , 9
-                  , 10
+                  , 1
                 ] , [
                     m1 / 10
                   , 8
-                  , 12
+                  , 1.5
                 ], [
                     m1 % 10
                   , 8
-                  , 12
+                  , 1.5
                 ] , [
                     h1 / 10
                   , 7
-                  , 15
+                  , 2
                 ], [
                     h1 % 10
                   , 7
-                  , 15
+                  , 2
                 ] , [
                     d1 / 10
                   , 6
-                  , 17
+                  , 2.5
                 ], [
                     d1 % 10
                   , 6
-                  , 17
+                  , 2.5
                 ] , [
                     f1 / 10
                   , 5
-                  , 20
+                  , 3
                 ], [
                     f1 % 10
                   , 5
-                  , 20
+                  , 3
                 ]
             ];
-            listRibs = [
+
+            s.emit('draw', [
                 [
                     listVertex[0]
                   , listVertex[2]
@@ -92,9 +99,10 @@ module.exports = function(server) {
                     listVertex[7]
                   , listVertex[9]
                 ]
-            ]
-            s.emit('draw', listRibs);
+            ]);
+
         }, 24);
     });
+
     return io;
 }
